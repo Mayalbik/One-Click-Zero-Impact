@@ -2,7 +2,7 @@ import { isLocal } from "./utils.js";
 
 export const URL_PREFIX = isLocal
   ? "http://localhost:3000/api/"
-  : "https://interactive-form.onrender.com/api/";
+  : "https://interactive-form-xwbu.onrender.com/api/";
 
 export const get = async (sceneName, sendingData) => {
   try {
