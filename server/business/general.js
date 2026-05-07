@@ -1,0 +1,33 @@
+import { resetAiScene } from "./scenes-logic/ai/api.js";
+import { resetBigThingScene } from "./scenes-logic/big thing/api.js";
+import { resetBingoScene } from "./scenes-logic/bingo/api.js";
+import { resetCountryScene } from "./scenes-logic/country/api.js";
+import { resetFeedbackScene } from "./scenes-logic/feedback/api.js";
+import { resetGendersScene } from "./scenes-logic/gender/api.js";
+import { resetIBelieveInScene } from "./scenes-logic/i belive in/api.js";
+import { resetIceCreamSandwichScene } from "./scenes-logic/ice-cream-sandwich/api.js";
+import { resetName } from "./scenes-logic/name/api.js";
+import { resetPoliticsScene } from "./scenes-logic/politics/api.js";
+import { resetSmileScene } from "./scenes-logic/smile/api.js";
+import { resetTheAnswerScene } from "./scenes-logic/the answer/api.js";
+import { resetToiletScene } from "./scenes-logic/toilet/api.js";
+import { resetUnrealScene } from "./scenes-logic/unreal/api.js";
+import { resetUserNumberCollection } from "./scenes-logic/user-number/api.js";
+
+export const resetAllScenes = () => {
+  resetAiScene();
+  resetBigThingScene();
+  resetBingoScene();
+  resetCountryScene();
+  resetFeedbackScene();
+  resetGendersScene();
+  resetIBelieveInScene();
+  resetIceCreamSandwichScene();
+  resetName();
+  resetPoliticsScene();
+  resetSmileScene();
+  resetTheAnswerScene();
+  resetToiletScene();
+  resetUnrealScene();
+  resetUserNumberCollection();
+};

@@ -5,7 +5,7 @@ import { USER_NUMBER } from "./consts/scenes-names.js";
 let currentUserPromise;
 
 export const getCurrentUser = async () => {
-  if (isLocal) return 10641;
+  if (isLocal) return 42069;
   if (!currentUserPromise) {
     currentUserPromise = emptyPost(USER_NUMBER).then((res) => res.value);
   }

@@ -31,9 +31,15 @@ export const getSceneRecordManager = (collectionName) => {
 
     resetCollection: async () => {
       const db = await connectToScenesDB();
-      const collection = db.collection(collectionName);
 
-      await collection.deleteMany({});
+      const collectionExists = await db
+        .listCollections({ name: collectionName })
+        .hasNext();
+
+      collectionExists
+        ? await db.collection(collectionName).deleteMany({})
+        : await db.createCollection(collectionName);
+
       console.log(`✅ ${collectionName} reset.`);
     },
   };

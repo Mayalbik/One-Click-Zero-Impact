@@ -3,7 +3,7 @@ import dotenv from "dotenv";
 import express from "express";
 import {
   getAiCounts,
-  incrementAiPick,
+  incrementAiPick
 } from "./business/scenes-logic/ai/api.js";
 import {
   getBigThingCounts,
@@ -102,7 +102,7 @@ app.route(USER_NUMBER).all(
     methodHandlers: {
       post: () => getAndIncrementUserNumber(),
     },
-  })
+  }),
 );
 
 app.route(GENDERS).all(
@@ -111,7 +111,7 @@ app.route(GENDERS).all(
       post: (req) => incrementGenderPick(req.body.gender),
       get: getGendersCounts,
     },
-  })
+  }),
 );
 
 app.route(POLITICS).all(
@@ -120,7 +120,7 @@ app.route(POLITICS).all(
       post: (req) => incrementPoliticsPick(req.body.side),
       get: getPoliticsCounts,
     },
-  })
+  }),
 );
 
 app.route(ICE_CREAM_SANDWICH).all(
@@ -129,7 +129,7 @@ app.route(ICE_CREAM_SANDWICH).all(
       post: (req) => incrementIceCreamSandwichPick(req.body.flavor),
       get: getIceCreamSandwichCounts,
     },
-  })
+  }),
 );
 
 app.route(NAME).all(
@@ -139,7 +139,7 @@ app.route(NAME).all(
       get: (req) => getNameHistory(Number(req.query.top)),
     },
     broadcast: true,
-  })
+  }),
 );
 
 app.route(SMILE).all(
@@ -147,7 +147,7 @@ app.route(SMILE).all(
     methodHandlers: {
       post: (req) => insertSmile(req.body.duration, req.body.image),
     },
-  })
+  }),
 );
 
 app.route(SMILE_LEADERBOARD).all(
@@ -155,7 +155,7 @@ app.route(SMILE_LEADERBOARD).all(
     methodHandlers: {
       get: (req) => getSmileLeaderboard(Number(req.query.top)),
     },
-  })
+  }),
 );
 
 app.route(SMILE_TIME).all(
@@ -163,7 +163,7 @@ app.route(SMILE_TIME).all(
     methodHandlers: {
       get: () => getTotalSmileTime(),
     },
-  })
+  }),
 );
 
 app.route(AI).all(
@@ -172,7 +172,7 @@ app.route(AI).all(
       post: (req) => incrementAiPick(req.body.ai),
       get: getAiCounts,
     },
-  })
+  }),
 );
 
 app.route(I_BELIEVE_IN).all(
@@ -181,7 +181,7 @@ app.route(I_BELIEVE_IN).all(
       post: ({ body }) => saveIBelieveInRecord(body),
       get: ({ query }) => getIBelieveInRecords(Number(query.top)),
     },
-  })
+  }),
 );
 
 app.route(UNREAL).all(
@@ -190,7 +190,7 @@ app.route(UNREAL).all(
       post: (req) => incrementUnrealPicks(req.body.picks),
       get: getUnrealCounts,
     },
-  })
+  }),
 );
 
 app.route(COUNTRY).all(
@@ -199,7 +199,7 @@ app.route(COUNTRY).all(
       post: (req) => incrementCountryPicks(req.body.picks),
       get: getCountryCounts,
     },
-  })
+  }),
 );
 
 app.route(FEEDBACK).all(
@@ -209,13 +209,13 @@ app.route(FEEDBACK).all(
         const parsed = feedbackSchema.safeParse(body);
         if (!parsed.success)
           throw new Error(
-            `given data was not in the right format: ${parsed.error.message}`
+            `given data was not in the right format: ${parsed.error.message}`,
           );
         saveFeedbackRecord(parsed.data);
       },
       get: ({ query }) => getFeedbackRecords(Number(query.top)),
     },
-  })
+  }),
 );
 
 app.route(BIG_THING).all(
@@ -224,7 +224,7 @@ app.route(BIG_THING).all(
       post: ({ body }) => incrementBigThingPick(body.pick),
       get: getBigThingCounts,
     },
-  })
+  }),
 );
 
 app.route(TOILET).all(
@@ -233,7 +233,7 @@ app.route(TOILET).all(
       post: ({ body }) => incrementToiletPick(body.pick),
       get: getToiletCounts,
     },
-  })
+  }),
 );
 
 app.route(SMILE_OUTSMILED).all(
@@ -242,7 +242,7 @@ app.route(SMILE_OUTSMILED).all(
       get: ({ query }) =>
         getRecordCountWithLessSmileDuration(Number(query.duration)),
     },
-  })
+  }),
 );
 
 app.route(THE_ANSWER).all(
@@ -251,7 +251,7 @@ app.route(THE_ANSWER).all(
       post: ({ body }) => incrementTheAnswerPick(body.pick),
       get: getTheAnswerCounts,
     },
-  })
+  }),
 );
 
 app.route(BINGO).all(
@@ -260,7 +260,7 @@ app.route(BINGO).all(
       post: ({ body }) => incrementBingoPicks(body.picks),
       get: getBingoCounts,
     },
-  })
+  }),
 );
 
 // Start server
